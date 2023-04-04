@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Fika es una aplicación que permite a los usuarios buscar comidas disponibles de manera sincrónica con la hora de su sistema.">
+<meta name="author" content="Deivi Campos">
+<meta name="keywords" content="Fika comida, búsqueda, locales abiertos">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fika</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.4/cr-1.6.2/r-2.4.1/sb-1.4.1/datatables.min.css" rel="stylesheet"/>
+<link rel="icon" th:href="@{/imgs/foodIco.png}" type="image/x-icon"/>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body class="backColorBody">
+	<header>
+		<div th:replace="~{NavApp}" class="container-fluid"></div>
+	</header>
+	<main>
+		<div id="block01" class="d-flex justify-content-center align-items-center p-2">
+			<h2 class="text-center textLanding">Comidas en <span class="cambiado p-3">Tiempo Real</span></h2>
+		</div>
+		<div id="block02" class="container mb-3">
+			<div class="text-center row">
+				<h1 class="mt-5">F I K A</h1>
+<!-- 				<div class="col-6"> -->
+<!-- 				<button class="btn btn-lg p-5 shadow my-5 botones text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mostrarPlatillos" aria-expanded="false" aria-controls="mostrarPlatillos"> -->
+<!-- 				    	Mostrar platillos -->
+<!-- 				    </button> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-6"> -->
+<!-- 				<button class="btn btn-lg p-5 shadow my-5 botones text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mostrarLocales" aria-expanded="false" aria-controls="mostrarLocales"> -->
+<!-- 				    	Mostrar locales -->
+<!-- 				    </button> -->
+<!-- 				</div>     -->
+				<hr class="border border-warning border-5 opacity-25 mt-3">
+			 </div>
+			 <div class="row text-center block02 py-2">
+			 	<div class="col-4 align-self-center">
+				 	<h3 class="text-center h3Menu" data-aos="fade-down" data-aos-easing="linear"
+     data-aos-duration="1000">Platillos disponibles</h3>			 	
+			 	</div>
+			 	<div class="col-4">
+					<img alt="" src="/imgs/menu512.webp" class="img-fluid" data-aos="fade-up" data-aos-easing="linear"
+     data-aos-duration="1000">
+			 	</div>
+			 	<div class="col-4 align-self-center">
+				 	<h3 class="text-center h3Menu"data-aos="fade-down" data-aos-easing="linear"
+     data-aos-duration="1000">En este preciso momento</h3>			 	
+			 	</div>
+			 </div>
+			 <div class="container p-5 table-responsive" id="mostrarPlatillos">
+				<table class="table display fade-out text-white table-hover w-100" id="platillos">
+					<thead>
+						<tr class="bg-dark">
+							<th class="text-center">Nombre</th>
+							<th class="text-center">Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="p : ${platillos}">
+							<td th:text="${p.nombrePlatillo}"></td>
+							<td><a th:href="@{/localesPlatillos(id=${p.idPlatillo})}"><i class="bi bi-shop fs-5 mx-2"></i>Ver locales</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row text-center block02 py-2">
+			 	<div class="col-4 align-self-center" >
+				 	<h3 class="text-center h3Menu" data-aos="fade-up" data-aos-easing="linear"
+     data-aos-duration="1000">Locales disponibles</h3>			 	
+			 	</div>
+			 	<div class="col-4">
+					<img alt="" src="/imgs/store512.webp" class="img-fluid" data-aos="fade-down" data-aos-easing="linear"
+     data-aos-duration="1000">
+			 	</div>
+			 	<div class="col-4 align-self-center" >
+				 	<h3 class="text-center h3Menu" data-aos="fade-up" data-aos-easing="linear"
+     data-aos-duration="1000">Justo ahora</h3>			 	
+			 	</div>
+			 </div>
+			<div class="container table-responsive p-5" id="mostrarLocales">
+		<!-- 	<hr class="border border-primary border-3 opacity-75"> -->
+				<table class="table display text-white w-100 table-hover" id="locales">
+					<thead>
+						<tr class="bg-dark ">
+							<th hidden=true class="text-center">ID</th>
+							<th class="text-center">Local</th>
+							<th class="text-center">Dirección</th>
+							<th class="text-center">Tel</th>
+							<th class="text-center">Abre</th>
+							<th class="text-center">Cierra</th>
+							<th class="text-center">Envía</th>
+							<th class="text-center">Tipo</th>
+<!-- 							<th>Entrega</th> -->
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="local : ${locales}">
+							<td th:text="${local.id}"  hidden=true></td>
+							<td th:text="${local.nombreLocal}"></td>
+							<td th:text="${local.direccion}"></td>
+							<td th:text="${local.telefono}"></td>
+							<td th:text="${local.horarioApertura}"></td>
+							<td th:text="${local.horarioCierre}"></td>
+							<td th:text="${local.express== true}? 'Si':'No'"></td>
+							<td th:text="${local.tipoCocina}"></td>
+<!-- 							<td th:text="${local.tiempoEntrega}"></td> -->
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+	<footer class="container-fluid text-center">
+		<div th:replace="~{FooterApp}"></div>
+	</footer>
+	<script src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.4/cr-1.6.2/r-2.4.1/sb-1.4.1/datatables.min.js"></script>
+    <script th:src="@{/js/main.js}" defer></script>
+	<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}" defer></script>
+	<script th:src="@{/webjars/bootstrap/5.2.3/js/popper.min.js}" defer></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+</html>

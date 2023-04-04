@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<div class="row p-0 m-0 py-3 backColorNav">
+    <div class="col-6 text-start align-self-end">
+        <a th:href="@{/}" class="fs-1">FIKA</a>
+    </div>
+    <div class="col-6 text-end">
+        <a class="fs-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark">
+            <i class="bi bi-list"></i>
+        </a>
+    </div>
+    <div class="offcanvas offcanvas-start backColorMenu w-50" data-bs-scroll="true" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white" id="offcanvasDarkLabel">¡Esperamos tengas un lindo día!</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" name="botonCerrar"></button>
+        </div>
+		<div class="offcanvas-body">
+			<div class="container-fluid row text-center fs-1 h-50 align-items-center">
+				<div class="col-sm-12">
+					<a href="#" target="_blank"><i
+						class="bi bi-facebook"></i>
+					</a>
+				</div>
+				<div class="col-sm-12">
+					<a href="#" target="_blank"><i
+						class="bi bi-instagram"></i>
+					</a>
+				</div>
+				<div class="col-sm-12">
+					<a href="#" target="_blank"><i
+						class="bi bi-tiktok"></i>
+					</a>
+				</div>
+				<div class="col-sm-12">
+					<a
+						href="https://web.whatsapp.com/send?phone=#&text=¡Hola!+Me+interesa+cotizar+un+servicio+por+favor.&type=phone_number&app_absent=0"
+						target="_blank"><i class="bi bi-whatsapp"></i>
+					</a>
+				</div>
+				<h6 class="text-white">¡Síguenos en nuestras redes!</h6>
+			</div>
+		</div>
+	</div>
+</div>
+</html>

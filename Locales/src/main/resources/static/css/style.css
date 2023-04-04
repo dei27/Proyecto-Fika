@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Montserrat+Alternates:ital,wght@0,700;1,300&family=Nunito+Sans&family=Poppins:ital,wght@0,300;0,600;1,500&family=Quicksand:wght@500&family=Raleway:ital,wght@0,200;1,700&family=Water+Brush&display=swap');
+
+
+/* font-family: 'Lato', sans-serif; */
+/* font-family: 'Montserrat Alternates', sans-serif; */
+/* font-family: 'Nunito Sans', sans-serif; */
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Quicksand', sans-serif; */
+/* font-family: 'Raleway', sans-serif; */
+/* font-family: 'Water Brush', cursive; */
+
+:root {
+  --block01: #ec2300;
+  --block02: #ff3b19;
+  --block03:#ff5537;
+  --block04:#ff735a;
+  --block05:#ff8c78;
+}
+
+body, html {
+    background-image: URL("/imgs/imgBB.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#block01 {
+    height: 86vh;
+}
+
+.textLanding{
+	font-size: 4vw;
+	font-family: 'Montserrat Alternates', sans-serif; 
+	font-weight: bolder;
+	font-stretch:condensed;
+	overflow: hidden;
+  	white-space: nowrap;
+  	text-shadow: 4px 4px white;
+  	animation: typing 3s steps(20) forwards;
+/*   	animation-iteration-count:2; */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.cambiado {
+  font-size: 5vw;
+  font-family: 'Lato', sans-serif; 
+  font-family: 'Poppins', sans-serif;
+  font-style:oblique;
+  background-color: rgba(255,85,55,0.8);
+  text-shadow: none;
+  color:white;
+}
+
+h1{
+  font-size: 7vw;
+  font-family: 'Montserrat Alternates', sans-serif; 
+  font-weight: bolder;
+  color:white;
+  
+}
+
+.backColorNav{
+	background-color: var(--block01);
+}
+
+.backColorBody{
+	background-color: var(--block02);
+}
+
+.backColorMenu{
+	background-color: var(--block03);
+}
+
+.botones{
+	background-color: var(--block01);
+}
+
+/* Estilos para la barra de desplazamiento vertical */
+::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+  background: #ff735a; /* Color del fondo de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff8c78; /* Color de la parte desplazable de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ec2300; /* Color de la parte desplazable de la barra de desplazamiento cuando el cursor está sobre ella */
+}
+
+
+a {
+  font-family: 'Nunito Sans', sans-serif;
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+}
+
+p {
+  font-family: 'Quicksand', sans-serif;
+  line-height: 2rem;
+}
+
+a:hover{
+  color: var(--block04);
+  font-size: larger;
+}
+
+footer{
+	background-color: var(--block03);
+}
+
+
+table{
+	color: white;
+	background-color: var(--block03);
+	font-family: 'Raleway', sans-serif;
+	text-align: center; 
+}
+
+.h3Menu{
+	font-size: 3vw;
+	font-family: 'Raleway', sans-serif; 
+	font-weight: bolder;
+	color: white;
+	text-shadow: 3px 2px gray;
+}
+
+#block02{
+	background-color: rgba(255,85,55,0.8);
+/* 	background-color: rgba(250, 80, 0, 0.6); */
+}
+
